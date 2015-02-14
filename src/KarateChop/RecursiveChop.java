@@ -21,12 +21,12 @@ class RecursiveChop extends Chop {
 
     @Override
     public int chop(int lol, int[] array) {
-        this.array = array;
-        this.lol = lol;
-        int end = array.length - 1;
-        if (end >= 0)
-            return innerChop(0, end);
-        else
+        if (array.length != 0) {
+            this.array = array;
+            this.lol = lol;
+            return innerChop(0, array.length - 1);
+        } else {
             return -1;
+        }
     }
 }
