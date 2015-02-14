@@ -3,7 +3,7 @@ package KarateChop;
 /**
  * Created on 2015-02-14.
  */
-public class Iterate2Chop extends Chop {
+class Iterate2Chop extends Chop {
     @Override
     public int chop(int lol, int[] array) {
         int start = 0;
