@@ -1,15 +1,19 @@
 package KarateChop;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-        Chop recursiveChop = new RecursiveChop();
-        Chop iterateChop = new IterateChop();
+        ArrayList<Chop> chops = new ArrayList<>();
+        chops.add(new RecursiveChop());
+        chops.add(new IterateChop());
+        chops.add(new Iterate2Chop());
 
-        recursiveChop.testChop();
-        System.out.println("Ok!");
-        iterateChop.testChop();
-        System.out.println("Ok!");
+        for (Chop chop: chops) {
+            chop.testChop();
+        }
+        System.out.print("Ok!");
     }
 
 }
