@@ -10,17 +10,23 @@ class RecursiveChop extends Chop {
     int lol;
 
     private int innerChop (int start, int end) {
-        int pos = (start + end) / 2;
-        if (lol > array[pos]) return innerChop(start + pos, end);
-        else if (lol < array[pos]) return innerChop(start, end - pos);
-        else if (lol == array[pos]) return pos;
-        else return -1;
+        if (start > end)
+            return -1;
+
+        int pos = ((start + end) / 2);
+        if (lol > array[pos]) return innerChop(pos + 1, end);
+        else if (lol < array[pos]) return innerChop(start, pos - 1);
+        else return pos;
     }
 
     @Override
     public int chop(int lol, int[] array) {
         this.array = array;
         this.lol = lol;
-        return innerChop(0, array.length - 1);
+        int end = array.length - 1;
+        if (end >= 0)
+            return innerChop(0, end);
+        else
+            return -1;
     }
 }
